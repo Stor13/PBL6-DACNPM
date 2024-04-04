@@ -2009,7 +2009,7 @@ Click vào "Xoá mục tiêu" trên record của mục tiêu cần xoá trong "D
 ### Hậu điều kiện
 Mục tiêu bị xoá bỏ khỏi danh sách mục tiêu tiến độ học tập cá nhân trong dữ liệu của hệ thống
 
-## UC012.7
+## UC012.9
 ### Tên UC
 Xem danh sách khoá học
 ### Sự kiện kích hoạt
@@ -2026,7 +2026,7 @@ Trên giao diện website, click vào "Danh sách khoá học cá nhân"
 ### Hậu điều kiện
 Tất cả các khoá học mà tác nhân tham gia được hiển thị lên danh sách
 
-## UC012.7
+## UC012.10
 ### Tên UC
 Xem thông tin chi tiết khoá học
 ### Sự kiện kích hoạt
@@ -2039,7 +2039,7 @@ Trên giao diện "Danh sách khoá học của cá nhân", click vào record c�
 ### Hậu điều kiện
 Thông tin chi tiết của khoá học đã chọn được hiển thị lên giao diện
 
-## UC012.8
+## UC012.11
 ### Tên UC
 Xem danh sách học viên của khoá học
 ### Sự kiện kích hoạt
@@ -2054,7 +2054,7 @@ Click vào "Danh sách học viên" trong giao diện "Thông tin chi tiết kho
 ### Hậu điều kiện
 Tất cả các học viên tham gia khoá học được hiển thị lên danh sách
 
-## UC012.9
+## UC012.12
 ### Tên UC
 Xem danh sách điểm của khoá học
 ### Sự kiện kích hoạt
@@ -2071,7 +2071,7 @@ Click vào "Danh sách điểm của học viên khoá học" trong giao diện 
 ### Hậu điều kiện
 Thông tin về điểm của tất cả các học viên tham gia khoá học được hiển thị lên danh sách
 
-## UC012.10
+## UC012.13
 ### Tên UC
 Xem danh sách tiến độ học tập của học viên của khoá học
 ### Sự kiện kích hoạt
@@ -2088,7 +2088,7 @@ Click vào "Danh sách tiến độ học tập của học viên khoá học" t
 ### Hậu điều kiện
 Thông tin về tiến độ học tập của tất cả các học viên tham gia khoá học được hiển thị lên danh sách
 
-## UC012.11
+## UC012.14
 ### Tên UC
 Xem danh sách tin tức của khoá học
 ### Sự kiện kích hoạt
@@ -2105,7 +2105,7 @@ Click vào "Danh sách tin tức của khoá học" trong giao diện "Thông ti
 ### Hậu điều kiện
 Tất cả tin tức của khoá học được hiển thị lên danh sách
 
-## UC012.12
+## UC012.15
 ### Tên UC
 Xem danh sách bài giảng của khoá học
 ### Sự kiện kích hoạt
@@ -2122,7 +2122,7 @@ Click vào "Danh sách bài giảng của khoá học" trong giao diện "Thông
 ### Hậu điều kiện
 Tất cả bài giảng của khoá học được hiển thị lên danh sách
 
-## UC012.13
+## UC012.16
 ### Tên UC
 Xem thông tin chi tiết bài giảng của khoá học
 ### Sự kiện kích hoạt
