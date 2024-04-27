@@ -143,6 +143,126 @@ main .main-table .tabs button.active {
   background-color: #00ffd9;
 }
 
+body.body-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #edecec;
+}
+
+form.login {
+  position: absolute;
+  width: 400px;
+  background-image: white;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 9);
+}
+
+form.login .content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+form.login .content h3 {
+  font-size: 2em;
+  color: black;
+  text-transform: uppercase;
+}
+
+form.login .content .form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+form.login .content .form .inputBox {
+  position: relative;
+  width: 100%;
+}
+
+form.login .content .form .inputBox input {
+  position: relative;
+  width: 100%;
+  background: white;
+  border: none;
+  outline: none;
+  padding: 25px 10px 7.5px 10px;
+  border-radius: 5px;
+  color: black;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+form.login .content .form .inputBox i.label {
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  font-style: normal;
+  color: black;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+form.login .content .form .inputBox i.label > i.fa-solid {
+  margin-right: 8px;
+}
+
+form.login .content .form .inputBox input:focus ~i.label,
+form.login .content .form .inputBox input:not(:placeholder-shown) ~i.label {
+  transform: translateY(-7.5px);
+  font-size: 0.8em;
+  color: black;
+}
+
+form.login .content .form .inputBox input:focus ~i.label > i.fa-solid,
+form.login .content .form .inputBox input:not(:placeholder-shown) ~i.label > i.fa-solid {
+  margin-right: 6px;
+}
+
+form.login .content .form .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+form.login .content .form .links a {
+  color: black;
+  text-decoration: none;
+}
+
+form.login .content .form .inputBox input[type="submit"] {
+  padding: 10px;
+  background: #00ffd9;
+  color: black;
+  font-weight: 600;
+  font-style: 1.35em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+form.login .content .form .inputBox input[type="submit"]:active {
+  opacity: 0.6;
+}
+
+.error-msg {
+  color: red;
+}
+
+
+
 
 .container {
   margin-right: auto;
