@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+}
+
 header .head-logo {
   text-align: center;
   padding: 10px;
@@ -44,110 +49,11 @@ header nav .nav-group a:hover {
   color: black;
 }
 
-main {
-  margin-top: 50px;
-}
-
-main .main-label {
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  background-color: #edecec;
-}
-
-main .main-label p {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-}
-
-main .search-bar {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main .search-bar input[type="text"] {
-  width: 400px;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-main .search-bar button {
-  font-size: 16px;
-  padding: 8px 12px;
-  background-color: #00ffd9;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-main .search-bar button:hover {
-  background-color: white;
-}
-
-main .tab-content .notification {
-  border: none;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-main .tab-content .notification .notification-header {
-  display: flex;
-  align-items: center;
-}
-
-main .tab-content .date {
-  color: red;
-  margin-right: 10px;
-}
-
-main .tab-content .label {
-  font-weight: bold;
-}
-
-main .tab-content .notification-body {
-  margin-top: 5px;
-}
-
-main .main-table .tabs {
-  height: 40px;
-  margin-top: 5px;
+.body-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #edecec;
-}
-
-main .main-table .tabs button {
-  height: 36px;
-  width: 200px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-}
-
-main .main-table .tabs button:hover {
-  border: 1px solid;
-}
-
-main .main-table .tabs button.active {
-  background-color: #00ffd9;
-}
-
-/* body.body-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  height: calc(100% - 120px);
   background: #edecec;
 }
 
@@ -259,7 +165,7 @@ form.login .content .form .inputBox input[type="submit"]:active {
 
 .error-msg {
   color: red;
-} */
+}
 
 
 

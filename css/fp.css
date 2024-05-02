@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+}
+
 header .head-logo {
   text-align: center;
   padding: 10px;
@@ -44,114 +49,15 @@ header nav .nav-group a:hover {
   color: black;
 }
 
-main {
-  margin-top: 50px;
-}
-
-main .main-label {
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  background-color: #edecec;
-}
-
-main .main-label p {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-}
-
-main .search-bar {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main .search-bar input[type="text"] {
-  width: 400px;
-  padding: 8px;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-main .search-bar button {
-  font-size: 16px;
-  padding: 8px 12px;
-  background-color: #00ffd9;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-main .search-bar button:hover {
-  background-color: white;
-}
-
-main .tab-content .notification {
-  border: none;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-main .tab-content .notification .notification-header {
-  display: flex;
-  align-items: center;
-}
-
-main .tab-content .date {
-  color: red;
-  margin-right: 10px;
-}
-
-main .tab-content .label {
-  font-weight: bold;
-}
-
-main .tab-content .notification-body {
-  margin-top: 5px;
-}
-
-main .main-table .tabs {
-  height: 40px;
-  margin-top: 5px;
+.body-fp {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #edecec;
-}
-
-main .main-table .tabs button {
-  height: 36px;
-  width: 200px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-}
-
-main .main-table .tabs button:hover {
-  border: 1px solid;
-}
-
-main .main-table .tabs button.active {
-  background-color: #00ffd9;
-}
-
-/* body.body-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  height: calc(100% - 120px);
   background: #edecec;
 }
 
-form.login {
+form.fp {
   position: absolute;
   width: 400px;
   background-image: white;
@@ -164,7 +70,7 @@ form.login {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 9);
 }
 
-form.login .content {
+form.fp .content {
   position: relative;
   width: 100%;
   display: flex;
@@ -174,25 +80,34 @@ form.login .content {
   gap: 40px;
 }
 
-form.login .content h3 {
+form.fp .content h3 {
   font-size: 2em;
   color: black;
   text-transform: uppercase;
 }
 
-form.login .content .form {
+form.fp .content .form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-form.login .content .form .inputBox {
+form.fp .content .form .inputBox {
   position: relative;
   width: 100%;
 }
 
-form.login .content .form .inputBox input {
+form.fp .content .form .label {
+  position: relative;
+  width: 100%;
+}
+
+form.fp .content .form .label > p {
+  text-align: center;
+}
+
+form.fp .content .form .inputBox input {
   position: relative;
   width: 100%;
   background: white;
@@ -205,7 +120,7 @@ form.login .content .form .inputBox input {
   font-size: 1em;
 }
 
-form.login .content .form .inputBox i.label {
+form.fp .content .form .inputBox i.label {
   position: absolute;
   left: 0;
   padding: 15px 10px;
@@ -215,35 +130,35 @@ form.login .content .form .inputBox i.label {
   pointer-events: none;
 }
 
-form.login .content .form .inputBox i.label > i.fa-solid {
+form.fp .content .form .inputBox i.label > i.fa-solid {
   margin-right: 8px;
 }
 
-form.login .content .form .inputBox input:focus ~i.label,
-form.login .content .form .inputBox input:not(:placeholder-shown) ~i.label {
+form.fp .content .form .inputBox input:focus ~i.label,
+form.fp .content .form .inputBox input:not(:placeholder-shown) ~i.label {
   transform: translateY(-7.5px);
   font-size: 0.8em;
   color: black;
 }
 
-form.login .content .form .inputBox input:focus ~i.label > i.fa-solid,
-form.login .content .form .inputBox input:not(:placeholder-shown) ~i.label > i.fa-solid {
+form.fp .content .form .inputBox input:focus ~i.label > i.fa-solid,
+form.fp .content .form .inputBox input:not(:placeholder-shown) ~i.label > i.fa-solid {
   margin-right: 6px;
 }
 
-form.login .content .form .links {
+form.fp .content .form .links {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
-form.login .content .form .links a {
+form.fp .content .form .links a {
   color: black;
   text-decoration: none;
 }
 
-form.login .content .form .inputBox input[type="submit"] {
+form.fp .content .form .inputBox input[type="submit"] {
   padding: 10px;
   background: #00ffd9;
   color: black;
@@ -253,13 +168,13 @@ form.login .content .form .inputBox input[type="submit"] {
   cursor: pointer;
 }
 
-form.login .content .form .inputBox input[type="submit"]:active {
+form.fp .content .form .inputBox input[type="submit"]:active {
   opacity: 0.6;
 }
 
 .error-msg {
   color: red;
-} */
+}
 
 
 

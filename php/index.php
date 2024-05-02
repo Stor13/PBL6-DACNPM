@@ -1,11 +1,3 @@
-<?php
-  include_once('./mysql_connection.php');
-  // if ($conn) {
-  //   echo "Database connection is available.";
-  // } else {
-  //   echo "Database connection is not available.";
-  // }
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,7 +14,7 @@
           <a href="/pbl5/php">Trang chủ</a>
         </div>
         <div class="nav-group">
-          <a href="/pbl5/php/login.php">Đăng nhập</a>
+          <a href="./login.php">Đăng nhập</a>
         </div>
       </nav>
     </header>
