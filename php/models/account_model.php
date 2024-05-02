@@ -15,8 +15,13 @@ class AccountModel extends MySQLDatabase {
     $sql = "SELECT * FROM $this->table WHERE UserID = $id";
     $result = $this->executeQuery($sql);
     // return $result;
-    if (mysqli_num_rows($result) == 1) return mysqli_fetch_assoc($result);
-    return false;
+    if (is_bool($result)) return null;
+    if (mysqli_num_rows($result) == 1) {
+      $temp = mysqli_fetch_assoc($result);
+      if (!is_array($temp)) return null;
+      else return $temp;
+    }
+    return null;
   }
 
   public function find($str) {
