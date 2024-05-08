@@ -1,15 +1,28 @@
 <?php 
   include_once "../models/account_model.php";
+  include_once "./process_jwt_token.php";
+  // include_once "./process_jwt_verification.php";
 
   function login_process($userID, $password) {
     // connect to database, do something;
     $accountModel = new AccountModel();
     $account = $accountModel->getOne_ID($userID);
-    if (empty($account)) {
+    if (empty($account) || $account == null) {
       return array("success" => false, "message" => "Account Not Found.");
     }
     if ($account["Password"] != $password) return array("success" => false, "message" => "Wrong Credentials.");
-    return array("success" => true, "message" => $account);
+    $data = array_intersect_key($account, array_flip(array("UserID", "Name")));
+
+    if ($account["Role"] == 9) {
+      $location = "/pbl5/php/admin";
+    } else if ($account["Role"] == 1) {
+      $location = "/pbl5/php/lecturer";
+    } else if ($account["Role"] == 0) {
+      $location = "/pbl5/php/student";
+    }
+    $data["iat"] = time() + (5 * 1);
+    $token = generate_token($data);
+    return array("success" => true, "message" => $data, "location" => $location, "token" => $token);
   };
 
   $userID = $_POST["userID"];

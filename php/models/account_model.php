@@ -16,7 +16,7 @@ class AccountModel extends MySQLDatabase {
     $result = $this->executeQuery($sql);
     // return $result;
     if (is_bool($result)) return null;
-    if (mysqli_num_rows($result) == 1) {
+    if (mysqli_num_rows($result) >= 1) {
       $temp = mysqli_fetch_assoc($result);
       if (!is_array($temp)) return null;
       else return $temp;
@@ -25,6 +25,7 @@ class AccountModel extends MySQLDatabase {
   }
 
   public function find($str) {
+    $str = $this->conn->real_escape_string($str);
     $sql = "SELECT * FROM $this->table WHERE (UserID = $str) OR (Name LIKE '%$str%')";
     $result = $this->executeQuery($sql);
     return $result;

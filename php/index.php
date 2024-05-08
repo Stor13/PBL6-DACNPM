@@ -60,6 +60,25 @@
     <footer></footer>
   </body>
   <script>
+    // window.onload = function() {
+      // if (localStorage.getItem('token')) {
+        // var credentials = JSON.parse(localStorage.getItem("credentials"));
+        // console.log(credentials);
+        // check if credentials is valid
+    //     let token = JSON.parse(localStorage.getItem('token'));
+
+    //     var location = "/pbl5/php";
+    //     if (credentials.Role == 9) {
+    //       location += '/admin';
+    //     } else if (credentials.Role == 1) {
+    //       location += '/lecturer';
+    //     } else if (credentials.Role == 0) { 
+    //       location += '/student'
+    //     };
+    //     console.log(location);
+    //     if (location != '/pbl5/php') window.location.href = location;
+    //   }
+    // }
     function openTab(tabID) {
       let tabContents = document.getElementsByClassName('tab-content');
       for (let i = 0; i < tabContents.length; ++i) {

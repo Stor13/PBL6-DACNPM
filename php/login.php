@@ -64,11 +64,18 @@
         xhr.onreadystatechange = function() {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-              // console.log(xhr.responseText);
+              // console.log('xhr_response: ', xhr.responseText);
               var response = JSON.parse(xhr.responseText);
               if (response.success) {
-                console.log('Form submitted');
-                window.location = "/pbl5/php";
+                // console.log('type ', typeof response.message);
+                var account = response.message;
+                var location = response.location;
+                var token = response.token;
+                
+                // console.log(account);
+                // localStorage.setItem('credentials', JSON.stringify(account));
+                localStorage.setItem('token', token);
+                window.location = location;
               } else {
                 document.getElementById("error-msg").innerText = response.message;
               }
