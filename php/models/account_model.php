@@ -76,4 +76,16 @@ class AccountModel extends MySQLDatabase {
   public function get_affected_rows() {
     return $this->conn->affected_rows;
   }
+
+  public function lock($userID) {
+    $id = $this->conn->real_escape_string($userID);
+    $sql = "UPDATE $this->table SET IsLocked = TRUE WHERE UserID = $id";
+    return $this->executeQuery($sql);
+  }
+
+  public function unlock($userID) {
+    $id = $this->conn->real_escape_string($userID);
+    $sql = "UPDATE $this->table SET IsLocked = FALSE WHERE UserID = $id";
+    return $this->executeQuery($sql);
+  }
 }

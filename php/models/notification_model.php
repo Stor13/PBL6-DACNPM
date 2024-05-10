@@ -24,6 +24,15 @@ class NotificationModel extends MySQLDatabase {
     return null;
   }
 
+  public function getPage($pageNumber, $limit = 10) {
+    if ($pageNumber < 1) return false;
+    $offset = ($pageNumber - 1) * $limit;
+    $sql = "SELECT * FROM $this->table OFFSET $offset LIMIT $limit";
+    $result = $this->executeQuery($sql);
+    if (is_bool($result)) return [];
+    return $this->fetchData($result);
+  }
+
   public function find_common($str) {
     $str = $this->conn->real_escape_string($str);
     $sql = "SELECT * FROM $this->table WHERE (IsToCourse = false) AND ((Label LIKE '%$str%') OR (Content LIKE '%$str%')) ORDER BY CreatedDate";
@@ -39,9 +48,36 @@ class NotificationModel extends MySQLDatabase {
   }
 
   public function add(
-    $label, $content, $isToCourse, $CourseID
+    $label, $content, $isToCourse, $courseID
   ) {
-    // $notificationID = 
-    // $createdDate = 
+    $label = $this->conn->real_escape_string($label);
+    $content = $this->conn->real_escape_string($content);
+    $isToCourse = $this->conn->real_escape_string($isToCourse);
+    $courseID = $this->conn->real_escape_string($courseID);
+    $sql = "INSERT INTO $this->table (Label, Content, IsToCourse, CourseID) VALUES ($label, $content, $isToCourse, $courseID)";
+    $result = $this->executeQuery($sql);
+    return $result;
+  }
+
+  public function update(
+    $id, $label, $content, $isToCourse, $courseID
+  ) {
+    $id = $this->conn->real_escape_string($id);
+    $label = $this->conn->real_escape_string($label);
+    $content = $this->conn->real_escape_string($content);
+    $isToCourse = $this->conn->real_escape_string($isToCourse);
+    $courseID = $this->conn->real_escape_string($courseID);
+    $sql = "UPDATE $this->table SET Label = $label, Content = $content, IsToCourse = $isToCourse, CourseID = $courseID WHERE NotificationID = $id";
+    return $this->executeQuery($sql);
+  }
+
+  public function delete($id) {
+    $id = $this->conn->real_escape_string($id);
+    $sql = "DELETE FROM $this->table WHERE NotificationID = $id";
+    return $this->executeQuery($sql);
+  }
+
+  public function get_affected_rows() {
+    return $this->conn->affected_rows;
   }
 }
