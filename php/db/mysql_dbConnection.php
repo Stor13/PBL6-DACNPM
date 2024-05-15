@@ -4,7 +4,7 @@ class MySQLDatabase {
   protected $username = "";
   protected $password = "";
   protected $database = "";
-  protected $conn;
+  public $conn;
 
   public function __construct() {
     $this->host = "localhost";
