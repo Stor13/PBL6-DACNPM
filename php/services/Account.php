@@ -57,9 +57,11 @@ class S_Account {
     return $result;
   }
 
-  public function _getOne_UserID(string $UserID): array|null {
-    $stmt_result = $this->account->getOne_UserID($UserID);
+  public function _getOne_UserID(string $id): array|null {
+    $this->account->UserID = $id;
+    $stmt_result = $this->account->getOne_UserID();
     $result = $stmt_result->fetch_assoc();
+    if (isset($result["Password"])) unset($result["Password"]);
     if (is_array($result) == false) return null;
     return $result;
   }

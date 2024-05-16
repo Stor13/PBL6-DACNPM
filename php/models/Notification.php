@@ -42,13 +42,15 @@ class Notification {
 
     return ($stmt->execute());
   }
-  public function getOne($id): mysqli_result {
+  public function getOne(): mysqli_result {
     $sql = "SELECT * FROM :table WHERE NotificationID=:NotificationID LiMIT 1";
     $stmt = $this->conn->prepare($sql);
-    $id = preprocess_input($id);
+    
+    $this->table = preprocess_input($this->table);
+    $this->NotificationID = preprocess_input($this->NotificationID);
     
     $stmt->bind_param(":table", $this->table);
-    $stmt->bind_param(":UserID", $id);
+    $stmt->bind_param(":NotificationID", $this->NotificationID);
     $stmt->execute();
     return $stmt->get_result();
   }

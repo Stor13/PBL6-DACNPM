@@ -10,9 +10,9 @@ class Course {
   private $table = "course";
   public $CourseID;
   public $CourseName;
-  public $Progress_Ratio;
-  public $Midterm_Ratio;
-  public $Finaltest_Ratio;
+  public $ProgressRatio;
+  public $MidtermRatio;
+  public $FinalRatio;
 
   public function __construct() {
     $mysqli_conn = new MySQL_Conn();
@@ -21,22 +21,22 @@ class Course {
 
   public function create() {
     $sql = "INSERT INTO :table SET CourseID=:CourseID, CourseName=:CourseName,
-            Progress_Ratio=:Progress_Ratio, Midterm_Ratio=:Midterm_Ratio,
-            Finaltest_Ratio=:Finaltest_Ratio";
+            ProgressRatio=:ProgressRatio, MidtermRatio=:MidtermRatio,
+            FinalRatio=:FinalRatio";
     $stmt = $this->conn->prepare($sql);
 
     $this->CourseID = preprocess_input($this->CourseID);
     $this->CourseName = preprocess_input($this->CourseName);
-    $this->Progress_Ratio = preprocess_input($this->Progress_Ratio);
-    $this->Midterm_Ratio = preprocess_input($this->Midterm_Ratio);
-    $this->Finaltest_Ratio = preprocess_input($this->Finaltest_Ratio);
+    $this->ProgressRatio = preprocess_input($this->ProgressRatio);
+    $this->MidtermRatio = preprocess_input($this->MidtermRatio);
+    $this->FinalRatio = preprocess_input($this->FinalRatio);
 
     $stmt->bind_param(":table", $this->table);
     $stmt->bind_param(":CourseID", $this->CourseID);
     $stmt->bind_param(":CourseName", $this->CourseName);
-    $stmt->bind_param(":Progress_Ratio", $this->Progress_Ratio);
-    $stmt->bind_param(":Midterm_Ratio", $this->Midterm_Ratio);
-    $stmt->bind_param(":Finaltest_Ratio", $this->Finaltest_Ratio);   
+    $stmt->bind_param(":ProgressRatio", $this->ProgressRatio);
+    $stmt->bind_param(":MidtermRatio", $this->MidtermRatio);
+    $stmt->bind_param(":FinalRatio", $this->FinalRatio);   
     
     if ($stmt->execute()) return $stmt->affected_rows > 0;
     else return false;
@@ -50,12 +50,12 @@ class Course {
     return $stmt->get_result();
   }
 
-  public function getOne($id): mysqli_result {
-    $id = preprocess_input($id);
+  public function getOne(): mysqli_result {
+    $this->CourseID = preprocess_input($this->CourseID);
     $sql = "SELECT * FROM :table WHERE CourseID=:CourseID LIMIT 1";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param(":table", $this->table);
-    $stmt->bind_param(":CourseID", $id);
+    $stmt->bind_param(":CourseID", $this->CourseID);
     $stmt->execute();
     return $stmt->get_result();
   }
@@ -73,27 +73,27 @@ class Course {
   public function update(): bool {
     $this->CourseID = preprocess_input($this->CourseID);
     $this->CourseName = preprocess_input($this->CourseName);
-    $this->Progress_Ratio = preprocess_input($this->Progress_Ratio);
-    $this->Midterm_Ratio = preprocess_input($this->Midterm_Ratio);
-    $this->Finaltest_Ratio = preprocess_input($this->Finaltest_Ratio);
+    $this->ProgressRatio = preprocess_input($this->ProgressRatio);
+    $this->MidtermRatio = preprocess_input($this->MidtermRatio);
+    $this->FinalRatio = preprocess_input($this->FinalRatio);
 
     $sql = "UPDATE :table SET CourseName=:CourseName, 
-            Progress_Ratio=:Progress_Ratio, Midterm_Ratio=:Midterm_Ratio, 
-            Finaltest_Ratio=:Finaltest_Ratio WHERE CourseID=:CourseID";
+            ProgressRatio=:ProgressRatio, MidtermRatio=:MidtermRatio, 
+            FinalRatio=:FinalRatio WHERE CourseID=:CourseID";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param(":table", $this->table);
     $stmt->bind_param(":CourseID", $this->CourseID);
     $stmt->bind_param(":CourseName", $this->CourseName);
-    $stmt->bind_param(":Progress_Ratio", $this->Progress_Ratio);
-    $stmt->bind_param(":Midterm_Ratio", $this->Midterm_Ratio);
-    $stmt->bind_param(":Finaltest_Ratio", $this->Finaltest_Ratio);
+    $stmt->bind_param(":ProgressRatio", $this->ProgressRatio);
+    $stmt->bind_param(":MidtermRatio", $this->MidtermRatio);
+    $stmt->bind_param(":FinalRatio", $this->FinalRatio);
 
     if ($stmt->execute()) return $stmt->affected_rows;
     return false;
   }
 
-  public function delete($id): bool {
-    $id = preprocess_input($id);
+  public function delete(): bool {
+    $this->CourseID = preprocess_input($this->CourseID);
     $sql = "DELETE FROM :table WHERE CourseID=:CourseID";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param(":table", $this->table);

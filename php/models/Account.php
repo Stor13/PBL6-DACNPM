@@ -57,18 +57,24 @@ class Account {
     return $stmt->get_result();
   }
 
-  public function getOne_UserID(string $id): mysqli_result {
+  public function getOne_UserID(): mysqli_result {
     $sql = "SELECT * FROM ".$this->table." WHERE UserID=:UserID LiMIT 1";
     $stmt = $this->conn->prepare($sql);
-    $id = preprocess_input($id);
-    $stmt->bind_param(":UserID", $id);
+    
+    $this->UserID = preprocess_input($this->UserID);
+    $stmt->bind_param(":UserID", $this->UserID);
     $stmt->execute();
     return $stmt->get_result();
   }
 
   public function get_Page(int $offset, int $limit): mysqli_result {
-    $sql = "SELECT * FROM ".$this->table." LIMIT ".$limit." OFFSET ".$offset;
+    $this->table = preprocess_input($this->table);
+    $sql = "SELECT * FROM :table LIMIT :limit OFFSET :offset";
+    
     $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param(":table", $this->table);
+    $stmt->bind_param(":limit", $limit);
+    $stmt->bind_param(":offset", $offset);
     $stmt->execute();
     return $stmt->get_result();
   }
