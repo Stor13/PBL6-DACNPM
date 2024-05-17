@@ -5,7 +5,7 @@ function preprocess_input($input):string {
   return htmlspecialchars(strip_tags($input));
 }
 
-class Account_CourseCompletedLesson {
+class Account_Course_CompletedLesson {
   private $conn;
   private $table = "account_courselesson_completed";
   public $UserID;
