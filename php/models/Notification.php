@@ -20,7 +20,7 @@ class Notification {
     $this->conn = $mysqli_conn->conn;
   }
   public function create(): bool {
-    $sql = "INSERT INTO ? SET NotificationID=?, 
+    $sql = "INSERT INTO ".$this->table." SET NotificationID=?, 
             Label=?, Content=?, CreatedDate=?, 
             IsToCourse=?, CourseID=?";
     $stmt = $this->conn->prepare($sql);
@@ -32,8 +32,7 @@ class Notification {
     $this->IsToCourse = preprocess_input($this->IsToCourse);
     $this->CourseID = preprocess_input($this->CourseID);
 
-    $stmt->bind_param("sssssss",
-      $this->table,
+    $stmt->bind_param("ssssss",
       $this->NotificationID,
       $this->Label,
       $this->Content,
@@ -45,11 +44,12 @@ class Notification {
     return ($stmt->execute());
   }
   public function getOne(): mysqli_result {
-    $sql = "SELECT * FROM :table WHERE NotificationID=:NotificationID LiMIT 1";
-    $stmt = $this->conn->prepare($sql);
-    
     $this->table = preprocess_input($this->table);
     $this->NotificationID = preprocess_input($this->NotificationID);
+
+    $sql = "SELECT * FROM ".$this->table." WHERE NotificationID=:NotificationID LiMIT 1";
+    $stmt = $this->conn->prepare($sql);
+    
     
     $stmt->bind_param(":table", $this->table);
     $stmt->bind_param(":NotificationID", $this->NotificationID);
@@ -60,6 +60,7 @@ class Notification {
     $this->table = preprocess_input($this->table);
     $offset = preprocess_input($offset);
     $limit = preprocess_input($limit);
+
     $sql = "SELECT * FROM ".$this->table." LIMIT ".$limit." OFFSET ".$offset;
     $stmt = $this->conn->prepare($sql);
 
@@ -67,12 +68,13 @@ class Notification {
     return $stmt->get_result();
   }
   public function find($str): mysqli_result {
+    $this->table = preprocess_input($this->table);
     $str = preprocess_input($str);
-    $sql = "SELECT * FROM :table WHERE Label LIKE %:str% 
+
+    $sql = "SELECT * FROM ".$this->table." WHERE Label LIKE %:str% 
             OR Content LIKE %:str% OR CourseID LIKE %:str%";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param(":str", $str);
-    $stmt->bind_param(":table", $this->table);
     $stmt->execute();
     return $stmt->get_result();
   }
@@ -85,11 +87,10 @@ class Notification {
     $this->IsToCourse = preprocess_input($this->IsToCourse);
     $this->CourseID = preprocess_input($this->CourseID);
 
-    $sql = "UPDATE :table SET NotificationID=:NotificationID, Label=:Label, 
+    $sql = "UPDATE ".$this->table." SET NotificationID=:NotificationID, Label=:Label, 
             Content=:Content, CreatedDate=:CreatedDate, IsToCourse=:IsToCourse,
             CourseID=:CourseID";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param(":table", $this->table);
     $stmt->bind_param(":NotificationID", $this->NotificationID);
     $stmt->bind_param(":Label", $this->Label);
     $stmt->bind_param(":Content", $this->Content);
@@ -98,6 +99,20 @@ class Notification {
     $stmt->bind_param(":CourseID", $this->CourseID);
     
     if ($stmt->execute()) return $stmt->affected_rows > 0;
-    else return false;
+    return false;
+  }
+
+  public function delete(): bool {
+    $this->table = preprocess_input($this->table);
+    $this->NotificationID = preprocess_input($this->NotificationID);
+
+    $sql = "DELETE FROM ".$this->table." WHERE NotificationID=?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param(
+      "s", 
+      $this->NotificationID
+    );
+    if ($stmt->execute()) return $stmt->affected_rows > 0;
+    return false;
   }
 }

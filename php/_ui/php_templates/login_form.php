@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="form-group mb-3 d-flex justify-content-start">
-        <a href="./forgot_password.php" class="text-decoration-none text-dark">Quen mat khau?</a>
+        <a href="/pbl5/php/_ui/forgot_password.php" class="text-decoration-none text-dark">Quen mat khau?</a>
       </div>
       <div class="form-group row mb-1 d-flex justify-content-center">
         <button id="loginform-submitbutton" type="submit" class="btn w-50 bg-light-green fw-bold text-capitalize text-align-center align-items-center">
