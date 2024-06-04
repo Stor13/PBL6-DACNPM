@@ -43,8 +43,177 @@
               </div>
             </div>
           </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
+          <div class="tab-notification">
+            <div id="noti-1" class="notification">
+              <div class="notification-header">
+                <span class="date">27/04/2024</span>
+                <span class="label">Kết quả thi tiếng Anh chuẩn đầu ra ngày 07.04.2024</span>
+              </div>
+              <div class="notification-body">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+          </div>
         </div>
         <div id="tab2" class="tab-content container" style="display: none;">
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
+          <div id="noti-2" class="notification">
+            <div class="notification-header">
+              <span class="date">27/04/2024</span>
+              <span class="label">Thầy Nguyen Van A thông báo đến lớp: TT HCM [1234.56.789]</span>
+            </div>
+            <div class="notification-body">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            </div>
+          </div>
           <div id="noti-2" class="notification">
             <div class="notification-header">
               <span class="date">27/04/2024</span>
@@ -60,25 +229,6 @@
     <footer></footer>
   </body>
   <script>
-    // window.onload = function() {
-      // if (localStorage.getItem('token')) {
-        // var credentials = JSON.parse(localStorage.getItem("credentials"));
-        // console.log(credentials);
-        // check if credentials is valid
-    //     let token = JSON.parse(localStorage.getItem('token'));
-
-    //     var location = "/pbl5/php";
-    //     if (credentials.Role == 9) {
-    //       location += '/admin';
-    //     } else if (credentials.Role == 1) {
-    //       location += '/lecturer';
-    //     } else if (credentials.Role == 0) { 
-    //       location += '/student'
-    //     };
-    //     console.log(location);
-    //     if (location != '/pbl5/php') window.location.href = location;
-    //   }
-    // }
     function openTab(tabID) {
       let tabContents = document.getElementsByClassName('tab-content');
       for (let i = 0; i < tabContents.length; ++i) {

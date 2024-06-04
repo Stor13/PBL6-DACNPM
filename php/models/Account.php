@@ -58,11 +58,11 @@ class Account {
   }
 
   public function getOne_UserID(): mysqli_result {
-    $sql = "SELECT * FROM ".$this->table." WHERE UserID=:UserID LiMIT 1";
-    $stmt = $this->conn->prepare($sql);
+    $sql = "SELECT * FROM ".$this->table." WHERE UserID=? LIMIT 1";
+    $stmt = mysqli_prepare($this->conn, $sql);
     
     $this->UserID = preprocess_input($this->UserID);
-    $stmt->bind_param(":UserID", $this->UserID);
+    $stmt->bind_param("s", $this->UserID);
     $stmt->execute();
     return $stmt->get_result();
   }

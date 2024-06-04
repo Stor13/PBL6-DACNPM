@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Consolas";
+  box-sizing: border-box;
+}
+
+.bg-light-green {
+  background-color: #00ffd9;
+}
+
+.bg-light-gray {
+  background-color: #edecec;
+}
+
+#header-navbar a {
+  width: 100px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  color: black;
+}
+
+#header-navbar a:hover {
+  color: white;
+}
+
+.tab-button {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: white;
+  word-wrap: break-word;
+}
+
+.tab-button:hover {
+  border: 1px solid black;
+}
+
+.tab-button.active {
+  background-color: #00ffd9;
+}
+
+#guest-index-input{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#guest-index-searchbutton {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #00ffd9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#guest-index-searchbutton:hover {
+  border: 1px solid black;
+}

@@ -61,7 +61,6 @@ class S_Account {
     $this->account->UserID = $id;
     $stmt_result = $this->account->getOne_UserID();
     $result = $stmt_result->fetch_assoc();
-    if (isset($result["Password"])) unset($result["Password"]);
     if (is_array($result) == false) return null;
     return $result;
   }

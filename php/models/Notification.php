@@ -1,5 +1,5 @@
 <?php
-require_once "../db/MySQL.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/db/MySQL.php";
 
 function preprocess_input($a): string {
   return htmlspecialchars(strip_tags($a));
@@ -20,9 +20,9 @@ class Notification {
     $this->conn = $mysqli_conn->conn;
   }
   public function create(): bool {
-    $sql = "INSERT INTO :table SET NotificationID=:NotificationID, 
-            Label=:Label, Content=:Content, CreatedDate=:CreatedDate, 
-            IsToCourse=:IsToCourse, CourseID=:CourseID";
+    $sql = "INSERT INTO ? SET NotificationID=?, 
+            Label=?, Content=?, CreatedDate=?, 
+            IsToCourse=?, CourseID=?";
     $stmt = $this->conn->prepare($sql);
 
     $this->NotificationID = preprocess_input($this->NotificationID);
@@ -32,13 +32,15 @@ class Notification {
     $this->IsToCourse = preprocess_input($this->IsToCourse);
     $this->CourseID = preprocess_input($this->CourseID);
 
-    $stmt->bind_param(":table", $this->table);
-    $stmt->bind_param(":NotificationID", $this->NotificationID);
-    $stmt->bind_param(":Label", $this->Label);
-    $stmt->bind_param(":Content", $this->Content);
-    $stmt->bind_param(":CreatedDate", $this->CreatedDate);
-    $stmt->bind_param(":IsToCourse", $this->IsToCourse);
-    $stmt->bind_param(":CourseID", $this->CourseID);
+    $stmt->bind_param("sssssss",
+      $this->table,
+      $this->NotificationID,
+      $this->Label,
+      $this->Content,
+      $this->CreatedDate,
+      $this->IsToCourse,
+      $this->CourseID
+    );
 
     return ($stmt->execute());
   }
@@ -55,14 +57,11 @@ class Notification {
     return $stmt->get_result();
   }
   public function getPage($offset, $limit): mysqli_result {
-    $sql = "SELECT * FROM :table LIMIT :limit OFFSET :offset";
-    $stmt = $this->conn->prepare($sql);
-
+    $this->table = preprocess_input($this->table);
     $offset = preprocess_input($offset);
     $limit = preprocess_input($limit);
-    $stmt->bind_param(":table", $this->table);
-    $stmt->bind_param(":offset", $offset);
-    $stmt->bind_param(":limit", $limit);
+    $sql = "SELECT * FROM ".$this->table." LIMIT ".$limit." OFFSET ".$offset;
+    $stmt = $this->conn->prepare($sql);
 
     $stmt->execute();
     return $stmt->get_result();

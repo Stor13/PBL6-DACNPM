@@ -1,5 +1,5 @@
 <?php
-require_once "../models/Notification.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/models/Notification.php";
 
 class S_Notification {
   private $noti;
