@@ -6,6 +6,8 @@ $root = $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/_ui/php_templates";
   <head>
     <?php include_once $root."/admin/admin_head.php" ?>
     <title>Admin - Homepage</title>
+    <script>
+    </script>
   </head>
   <body>
     <header class="border-bottom py-3 mb-3">
@@ -14,12 +16,11 @@ $root = $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/_ui/php_templates";
     </header>
 
     <main>
-      <?php include_once $root."/admin/admin_index.php" ?>
+      <?php include_once $root."/admin/admin_quanly_tintuc_themmoi.php" ?>
     </main> 
 
     <footer>
-      CREATE - tao moi
     </footer>
-    <script src="../js/admin/admin_index.js"></script>
+    <script src="/pbl5/php/_ui/js/admin/admin_quanly_tintuc_themmoi.js"></script>
   </body>
 </html>

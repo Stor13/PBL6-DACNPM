@@ -14,11 +14,11 @@ $root = $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/_ui/php_templates";
     </header>
 
     <main>
-      <?php include_once $root."/admin/admin_index.php" ?>
+      <!-- <?php include_once $root."/admin/admin_index.php" ?> -->
+      <p>Chi tiet</p>
     </main> 
 
     <footer>
-      READ - chi tiet
     </footer>
     <script src="../js/admin/admin_index.js"></script>
   </body>

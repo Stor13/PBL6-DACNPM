@@ -1,8 +1,9 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/db/MySQL.php";
 
-function preprocess_input($a): string {
-  return htmlspecialchars(strip_tags($a));
+function preprocess_input($a): string|bool|null {
+  if (is_string($a)) return htmlspecialchars(strip_tags($a));
+  return $a;
 }
 
 class Notification {
@@ -19,62 +20,86 @@ class Notification {
     $mysqli_conn = new MySQL_Conn();
     $this->conn = $mysqli_conn->conn;
   }
-  public function create(): bool {
-    $sql = "INSERT INTO ".$this->table." SET NotificationID=?, 
-            Label=?, Content=?, CreatedDate=?, 
-            IsToCourse=?, CourseID=?";
-    $stmt = $this->conn->prepare($sql);
 
-    $this->NotificationID = preprocess_input($this->NotificationID);
+  function getPreparedQuery($stmt, $sql, $params) {
+    $param_types = array_shift($params);
+    $param_count = strlen($param_types);
+
+    for ($i = 0; $i < $param_count; $i++) {
+        $sql = preg_replace('/\?/', '"' . $params[$i] . '"', $sql, 1);
+    }
+
+    return $sql;
+  }
+
+  public function create(): bool {
+    $this->table = preprocess_input($this->table);
     $this->Label = preprocess_input($this->Label);
-    $this->Content = preprocess_input($this->NotificationID);
-    $this->CreatedDate = preprocess_input($this->CreatedDate);
+    $this->Content = preprocess_input($this->Content);
     $this->IsToCourse = preprocess_input($this->IsToCourse);
     $this->CourseID = preprocess_input($this->CourseID);
+    $this->CreatedDate = date("Y-m-d");
 
-    $stmt->bind_param("ssssss",
-      $this->NotificationID,
+    $sql = "INSERT INTO $this->table SET Label=?,
+    Content=?, IsToCourse=?, CourseID=?, CreatedDate=?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param(
+      "ssiss",
       $this->Label,
       $this->Content,
-      $this->CreatedDate,
       $this->IsToCourse,
-      $this->CourseID
+      $this->CourseID,
+      $this->CreatedDate
     );
-
-    return ($stmt->execute());
+    if ($stmt->execute() === true) return ($stmt->affected_rows > 0);
+    return false;
+    
   }
+
   public function getOne(): mysqli_result {
     $this->table = preprocess_input($this->table);
     $this->NotificationID = preprocess_input($this->NotificationID);
 
-    $sql = "SELECT * FROM ".$this->table." WHERE NotificationID=:NotificationID LiMIT 1";
+    $sql = "SELECT * FROM ".$this->table." WHERE NotificationID=? LiMIT 1";
     $stmt = $this->conn->prepare($sql);
     
-    
-    $stmt->bind_param(":table", $this->table);
-    $stmt->bind_param(":NotificationID", $this->NotificationID);
+    $stmt->bind_param("s", $this->NotificationID);
     $stmt->execute();
     return $stmt->get_result();
   }
-  public function getPage($offset, $limit): mysqli_result {
+
+  public function get_NotificationToAll(): mysqli_result {
     $this->table = preprocess_input($this->table);
-    $offset = preprocess_input($offset);
-    $limit = preprocess_input($limit);
+    $this->IsToCourse = preprocess_input(false);
 
-    $sql = "SELECT * FROM ".$this->table." LIMIT ".$limit." OFFSET ".$offset;
+    $sql = "SELECT * FROM $this->table WHERE IsToCourse=?";
     $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $this->IsToCourse);
 
     $stmt->execute();
     return $stmt->get_result();
   }
+
+  public function get_NotificationToCourse(): mysqli_result {
+    $this->table = preprocess_input($this->table);
+    $this->IsToCourse = preprocess_input(true);
+
+    $sql = "SELECT * FROM $this->table WHERE IsToCourse=?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("s", $this->IsToCourse);
+    
+    $stmt->execute();
+    return $stmt->get_result();
+  }
+
   public function find($str): mysqli_result {
     $this->table = preprocess_input($this->table);
     $str = preprocess_input($str);
 
-    $sql = "SELECT * FROM ".$this->table." WHERE Label LIKE %:str% 
-            OR Content LIKE %:str% OR CourseID LIKE %:str%";
+    $sql = "SELECT * FROM ".$this->table." WHERE Label LIKE %?% 
+            OR Content LIKE %?% OR CourseID LIKE %?%";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param(":str", $str);
+    $stmt->bind_param("sss", $str, $str, $str);
     $stmt->execute();
     return $stmt->get_result();
   }
@@ -82,21 +107,21 @@ class Notification {
   public function update(): bool {
     $this->NotificationID = preprocess_input($this->NotificationID);
     $this->Label = preprocess_input($this->Label);
-    $this->Content = preprocess_input($this->NotificationID);
-    $this->CreatedDate = preprocess_input($this->CreatedDate);
+    $this->Content = preprocess_input($this->Content);
     $this->IsToCourse = preprocess_input($this->IsToCourse);
     $this->CourseID = preprocess_input($this->CourseID);
 
-    $sql = "UPDATE ".$this->table." SET NotificationID=:NotificationID, Label=:Label, 
-            Content=:Content, CreatedDate=:CreatedDate, IsToCourse=:IsToCourse,
-            CourseID=:CourseID";
+    $sql = "UPDATE ".$this->table." SET Label=?, 
+            Content=?, IsToCourse=?, CourseID=? WHERE NotificationID=?";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bind_param(":NotificationID", $this->NotificationID);
-    $stmt->bind_param(":Label", $this->Label);
-    $stmt->bind_param(":Content", $this->Content);
-    $stmt->bind_param(":CreatedDate", $this->CreatedDate);
-    $stmt->bind_param(":IsToCourse", $this->IsToCourse);
-    $stmt->bind_param(":CourseID", $this->CourseID);
+    $stmt->bind_param(
+      "ssisi", 
+      $this->Label, 
+      $this->Content, 
+      $this->IsToCourse, 
+      $this->CourseID,
+      $this->NotificationID
+    );
     
     if ($stmt->execute()) return $stmt->affected_rows > 0;
     return false;
@@ -109,7 +134,7 @@ class Notification {
     $sql = "DELETE FROM ".$this->table." WHERE NotificationID=?";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param(
-      "s", 
+      "i", 
       $this->NotificationID
     );
     if ($stmt->execute()) return $stmt->affected_rows > 0;

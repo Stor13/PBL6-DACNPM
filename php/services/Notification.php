@@ -36,14 +36,24 @@ class S_Notification {
   }
 
   public function getOne($id): array|null {
-    $result = $this->getOne($id);
+    $this->noti->NotificationID = $id;
+    $stmt_result = $this->noti->getOne();
+    $result = $stmt_result->fetch_assoc();
     if (is_array($result) == false) return null;
     return $result;
   }
 
-  public function getPage(int $page, int $limit): array {
-    $offset = max(0, $page - 1) * $limit;
-    $stmt_result = $this->noti->getPage($offset, $limit);
+  public function get_NotificationToAll(): array {
+    $stmt_result = $this->noti->get_NotificationToAll();
+    $result = [];
+    while ($row = $stmt_result->fetch_assoc()) {
+      $result[] = $row;
+    }
+    return $result;
+  }
+
+  public function get_NotificationToCourse(): array {
+    $stmt_result = $this->noti->get_NotificationToCourse();
     $result = [];
     while ($row = $stmt_result->fetch_assoc()) {
       $result[] = $row;
@@ -74,5 +84,15 @@ class S_Notification {
     $this->noti->CreatedDate = date('Y-m-d');
 
     return $this->noti->update();
+  }
+  
+  public function delete(
+    $NotificationID
+  ): bool {
+    $noti = $this->getOne($NotificationID);
+    if ($noti === null) return false;
+
+    $this->noti->NotificationID = $NotificationID;
+    return $this->noti->delete();
   }
 }

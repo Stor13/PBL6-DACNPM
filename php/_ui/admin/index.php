@@ -15,7 +15,6 @@
     </main> 
 
     <footer>
-      ADMIN - ADMIN - ADMIN - ADMIN - ADMIN
     </footer>
     <script src="../js/admin/admin_index.js"></script>
   </body>

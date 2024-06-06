@@ -17,8 +17,8 @@
 <?php 
 $service_notification = new S_Notification();
 $limit = 1;
-$tabChung_content = $service_notification->getPage(1, $limit);
-$tabKhoahoc_content = $service_notification->getPage(2, $limit);
+$tabChung_content = $service_notification->get_NotificationToAll();
+$tabKhoahoc_content = $service_notification->get_NotificationToCourse();
 ?>
 <!-- <div class="mb-3">
   <div class="d-flex">

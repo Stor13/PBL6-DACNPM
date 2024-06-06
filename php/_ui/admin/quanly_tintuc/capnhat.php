@@ -1,11 +1,15 @@
 <?php 
 $root = $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/_ui/php_templates";
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <?php include_once $root."/admin/admin_head.php" ?>
     <title>Admin - Homepage</title>
+    <script>
+      // console.log('ID: ', "<?php echo $id ?>");
+    </script>
   </head>
   <body>
     <header class="border-bottom py-3 mb-3">
@@ -14,12 +18,11 @@ $root = $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/_ui/php_templates";
     </header>
 
     <main>
-      <?php include_once $root."/admin/admin_index.php" ?>
+      <?php include_once $root."/admin/admin_quanly_tintuc_capnhat.php" ?>
     </main> 
 
     <footer>
-      UPDATE - cap nhat
     </footer>
-    <script src="../js/admin/admin_index.js"></script>
+    <script src="/pbl5/php/_ui/js/admin/admin_quanly_tintuc_capnhat.js"></script>
   </body>
 </html>

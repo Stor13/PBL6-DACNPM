@@ -102,15 +102,15 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
     let formData = new FormData(this);
     console.log("formData", formData);
     let xhr = new XMLHttpRequest();
-    console.log(1);
+    // console.log(1);
     xhr.open("POST", "../views/check_login.php", true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          console.log(2);
+          // console.log(2);
           // console.log(xhr.responseText);
           let response = JSON.parse(xhr.responseText);
-          console.log(3);
+          // console.log(3);
           if (response.success) {
             let data = response.data;
             let UserID = data["UserID"];
@@ -119,9 +119,9 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
           } else {
             errorMsg.innerText = response.message;
           }
-          console.log(4);
+          // console.log(4);
         } else {
-          console.log(5);
+          // console.log(5);
           console.error("ERROR: ", xhr.statusText);
           errorMsg.innerText = "Unknown Connection Error!";
         }
