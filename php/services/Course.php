@@ -1,5 +1,5 @@
 <?php
-require_once "../models/Course.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/models/Course.php";
 
 class S_Course {
   private $course;

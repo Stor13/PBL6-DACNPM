@@ -105,10 +105,10 @@ $tabKhoahoc_content = $service_notification->get_NotificationToCourse();
   </div>
   <div class="p-1 w-25 border-start border-bottom">
     <div class="row p-1">
-      <a href="/pbl5/php/_ui/admin/quanly_tintuc/themmoi.php" class="text-decoration-none text-center py-1 m-1" id="sidebar_button">Them moi</a>
+      <a href="/pbl5/php/_ui/admin/quanly_tintuc/themmoi.php" class="text-decoration-none text-center py-1 m-1 sidebar_button">Them moi</a>
     </div>
     <div class="row p-1">
-      <a href="/pbl5/php/_ui/admin" class="text-decoration-none text-center py-1 m-1" id="sidebar_button">Quay lai</a>
+      <a href="/pbl5/php/_ui/admin" class="text-decoration-none text-center py-1 m-1 sidebar_button">Quay lai</a>
     </div>
   </div>
 </div>

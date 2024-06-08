@@ -14,12 +14,6 @@
     <button id="tab-khoahoc-button" class="col tab-button mx-5 my-1 py-1 px-1" onclick="openTabKhoahoc()">Thong bao toi khoa hoc</button>
   </div>
 </div>
-<?php 
-$service_notification = new S_Notification();
-$limit = 1;
-$tabChung_content = $service_notification->get_NotificationToAll();
-$tabKhoahoc_content = $service_notification->get_NotificationToCourse();
-?>
 <!-- <div class="mb-3">
   <div class="d-flex">
     <span class="text-danger mx-1 p-1">
@@ -33,6 +27,12 @@ $tabKhoahoc_content = $service_notification->get_NotificationToCourse();
     <p class="p-1">Noi dung</p>
   </div>
 </div> -->
+<?php 
+$service_notification = new S_Notification();
+$limit = 1;
+$tabChung_content = $service_notification->get_NotificationToAll();
+$tabKhoahoc_content = $service_notification->get_NotificationToCourse();
+?>
 
 <div class="container py-1 w-75" id="content-table">
   <div id="content">

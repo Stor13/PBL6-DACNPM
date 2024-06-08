@@ -46,6 +46,14 @@
   border-radius: 5px;
 }
 
+.text-hover-color-light-green {
+  transition: all 0.3s ease;
+}
+
+.text-hover-color-light-green:hover {
+  color: #00ffd9;
+}
+
 #guest-index-searchbutton {
   border: 1px solid transparent;
   border-radius: 5px;
@@ -58,13 +66,13 @@
   border: 1px solid black;
 }
 
-#sidebar_button {
+a.sidebar_button {
   cursor: pointer;
   color: black;
   transition: all 0.3s ease;
 }
 
-#sidebar_button:hover {
+a.sidebar_button:hover {
   color: #00ffd9;
 }
 
@@ -77,4 +85,8 @@
 #form-submitbutton:hover {
   border: 1px solid black;
   background-color: white;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

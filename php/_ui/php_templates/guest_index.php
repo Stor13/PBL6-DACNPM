@@ -1,3 +1,4 @@
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/services/Notification.php"; ?>
 <div class="container py-1 w-75 d-flex flex-wrap justify-content-center align-items-center bg-light-gray">
   <h5 class="my-auto py-1">Thong Bao</h5>
 </div>
@@ -13,91 +14,58 @@
     <button id="tab-khoahoc-button" class="col tab-button mx-5 my-1 py-1 px-1" onclick="openTabKhoahoc()">Thong bao toi khoa hoc</button>
   </div>
 </div>
+<?php 
+$service_notification = new S_Notification();
+$limit = 1;
+$tabChung_content = $service_notification->get_NotificationToAll();
+$tabKhoahoc_content = $service_notification->get_NotificationToCourse();
+?>
+
 <div class="container py-1 w-75" id="content-table">
   <div id="content">
     <div id="tab-chung-content">
-      <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/0000
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/0000
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/0000
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
+      <?php 
+      foreach ($tabChung_content as $item) {
+        if (isset($item["CreatedDate"]) && isset($item["Label"]) && isset($item["Content"])) {
+          echo "<div class='mb-3'>";
+          echo "  <div class='d-flex'>";
+          echo "    <span class='text-danger mx-1 p-1'>";
+          echo "      ".$item["CreatedDate"];
+          echo "    </span>";
+          echo "    <span class='mx-1 p-1'>";
+          echo "      <p><strong>".$item["Label"]."</strong></p>";
+          echo "    </span>";
+          echo "  </div>";
+          echo "  <div class='mx-1'>";
+          echo "    <p class='p-1'>".$item["Content"]."</p>";
+          echo "  </div>";
+          echo "</div>";
+        }
+      }
+      ?>
     </div>
 
     <div id="tab-khoahoc-content" class="d-none">
-    <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/1111
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/1111
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
-      <div class="mb-3">
-        <div class="d-flex">
-          <span class="text-danger mx-1 p-1">
-            01/01/1111
-          </span>
-          <span class="mx-1 p-1">
-            <p><strong>Thong bao</strong></p>
-          </span>
-        </div>
-        <div class="mx-1">
-          <p class="p-1">Noi dung</p>
-        </div>
-      </div>
-  </div>
+      <?php 
+      foreach ($tabKhoahoc_content as $item) {
+        if (isset($item["CreatedDate"]) && isset($item["Label"]) && isset($item["Content"])) {
+          echo "<div class='mb-3'>";
+          echo "  <div class='d-flex'>";
+          echo "    <span class='text-danger mx-1 p-1'>";
+          echo "      ".$item["CreatedDate"];
+          echo "    </span>";
+          echo "    <span class='mx-1 p-1'>";
+          echo "      <p><strong>".$item["Label"]."</strong></p>";
+          echo "    </span>";
+          echo "  </div>";
+          echo "  <div class='mx-1'>";
+          echo "    <p class='p-1'>".$item["Content"]."</p>";
+          echo "  </div>";
+          echo "</div>";
+        }
+      }
+      ?>
+    </div>
     
   <div class="container py-1 w-75 d-none" id="paging">
     <button>1</button>
