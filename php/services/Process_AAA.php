@@ -66,18 +66,18 @@ function new_response_admin_index(): array{
     "data" => "/pbl5/php/_ui/admin/"
   );
 }
-function new_response_lecturer_index(): array{
+function new_response_lecturer_index(string $UserID): array{
   return array(
     "success" => true,
     "message" => "",
-    "data" => "/pbl5/php/_ui"
+    "data" => "/pbl5/php/_ui/lecturer?UserID=$UserID"
   );
 }
-function new_response_student_index(): array{
+function new_response_student_index(string $UserID): array{
   return array(
     "success" => true,
     "message" => "",
-    "data" => "/pbl5/php/_ui"
+    "data" => "/pbl5/php/_ui/student?UserID=$UserID"
   );
 }
 
@@ -99,8 +99,8 @@ function get_loggedin_index(string $UserID): array {
   
   $role = check_accountRole($UserID);
   if ($role == "admin") return new_response_admin_index();
-  if ($role == "lecturer") return new_response_lecturer_index();
-  if ($role == "student") return new_response_student_index();
+  if ($role == "lecturer") return new_response_lecturer_index($UserID);
+  if ($role == "student") return new_response_student_index($UserID);
   return new_response_guest_index();
 };
 

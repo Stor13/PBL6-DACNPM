@@ -68,12 +68,12 @@ function redirect_true_indexPage(formData) {
       if (xhr.status === 200) {
         // console.log('true_indexPage', xhr.responseText);
         let response = JSON.parse(xhr.responseText);
-        console.log('response', response);
-        console.log('win_location', window.location);
+        // console.log('response', response);
+        // console.log('win_location', window.location);
         window.location.href = response.data;
       } else {
         console.error("ERROR: ", xhr.statusText);
-        // errorMsg.innerText = "Unknown Connection Error!";
+        errorMsg.innerText = "Unknown Connection Error!";
       }
     }
   }
