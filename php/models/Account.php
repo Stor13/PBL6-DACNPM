@@ -1,5 +1,5 @@
 <?php
-include_once "../db/MySQL.php";
+include_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/db/MySQL.php";
 
 function preprocess_input($a): string {
   return htmlspecialchars(strip_tags($a));

@@ -4,7 +4,7 @@
 </div>
 <div class="container w-75 d-flex flex-wrap justify-content-between align-items-start">
   <div class="container py-1 w-75" id="content-table">
-  <div id="content">
+    <div id="content">
       <div class="container my-1">
         <form action="" method="post" id="themmoi_khoahoc_form">
           <div class="form-group row mb-1">

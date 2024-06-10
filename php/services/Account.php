@@ -1,5 +1,5 @@
 <?php
-require_once "../models/Account.php";
+require_once $_SERVER["DOCUMENT_ROOT"]."/pbl5/php/models/Account.php";
 
 class S_Account {
   private $account;

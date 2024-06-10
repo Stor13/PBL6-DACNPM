@@ -66,7 +66,7 @@ function redirect_true_indexPage(formData) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
-        console.log('true_indexPage', xhr.responseText);
+        // console.log('true_indexPage', xhr.responseText);
         let response = JSON.parse(xhr.responseText);
         console.log('response', response);
         console.log('win_location', window.location);
@@ -79,22 +79,6 @@ function redirect_true_indexPage(formData) {
   }
   xhr.send(formData);
 }
-
-// window.onload = function() {
-//   console.log('12983712983712');
-//   let UserID = localStorage.getItem("UserID");
-//   if (UserID == null) return;
-//   let formData = new FormData();
-//   let obj = {
-//     "input_UserID": UserID
-//   };
-//   for (const key in obj) {
-//     formData.append(
-//       key, obj[key]
-//     )
-//   };
-//   return redirect_true_indexPage(formData);
-// }
 
 document.getElementById("login-form").addEventListener("submit", function(e) {
   e.preventDefault();

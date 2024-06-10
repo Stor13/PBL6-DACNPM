@@ -53,42 +53,42 @@ $service_course = new S_Course();
   <div class="p-1 w-25 border-start border-bottom">
     <div class="row p-1">
       <a href="/pbl5/php/_ui/admin/quanly_khoahoc/capnhat.php?CourseID=<?= $course["CourseID"] ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Cap nhat
+        Cập nhật thông tin khoá học
+      </a>
+    </div>
+    <div class="row p-1">
+      <a href="/pbl5/php/_ui/admin/quanly_khoahoc/danhsach_giangvien/index.php?CourseID=<?= $course["CourseID"] ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
+        Danh sách Giảng viên
+      </a>
+    </div>
+    <div class="row p-1">
+      <a href="/pbl5/php/_ui/admin/quanly_khoahoc/danhsach_hocvien/index.php?CourseID=<?= $course["CourseID"] ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
+        Danh sách Học viên
       </a>
     </div>
     <div class="row p-1">
       <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach Giang vien
+        Danh sách Bài giảng
       </a>
     </div>
     <div class="row p-1">
       <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach Hoc vien
+        Danh sách Tin tức
       </a>
     </div>
     <div class="row p-1">
       <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach Bai giang
+        Danh sách Điểm
       </a>
     </div>
     <div class="row p-1">
       <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach Tin tuc
+        Danh sách tiến độ học tập
       </a>
     </div>
     <div class="row p-1">
       <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach diem
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sach tien do hoc tap
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Xoa Khoa hoc?
+        Xoá khoá học?
       </a>
     </div>
     <div class="row p-1">
