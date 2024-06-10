@@ -89,7 +89,7 @@ $tabKhoahoc_content = $service_notification->get_NotificationToCourse();
   </div>
   <div class="p-1 w-25 border-start border-bottom">
     <div class="row p-1">
-      <a href="/pbl5/php/_ui/lecturer" class="text-decoration-none text-center py-1 m-1 sidebar_button">Quay lai</a>
+      <a href="/pbl5/php/_ui/student/?UserID=<?= $UserID ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">Quay lai</a>
     </div>  
   </div>
   <?php } ?>

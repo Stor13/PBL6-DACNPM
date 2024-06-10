@@ -64,37 +64,7 @@ if (isset($_GET["UserID"]) && isset($_GET["CourseID"])) {
   </div>
   <div class="p-1 w-25 border-start border-bottom">
     <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Cập nhật thông tin khoá học
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sách Bài giảng
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sách Tin tức
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="/pbl5/php/_ui/lecturer/quanly_khoahoc/danhsach_diem/index.php?UserID=<?= $UserID ?>&CourseID=<?= $CourseID ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sách Điểm
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Danh sách tiến độ học tập
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="" class="text-decoration-none text-center py-1 m-1 sidebar_button">
-        Xoá khoá học?
-      </a>
-    </div>
-    <div class="row p-1">
-      <a href="/pbl5/php/_ui/lecturer/quanly_khoahoc/?UserID=<?= $UserID ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
+      <a href="/pbl5/php/_ui/student/quanly_khoahoc/?UserID=<?= $UserID ?>" class="text-decoration-none text-center py-1 m-1 sidebar_button">
         Quay lai
       </a>
     </div>

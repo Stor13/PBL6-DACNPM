@@ -17,6 +17,6 @@
     <footer>
 
     </footer>
-    <!-- <script src="./js/guest_index.js"></script> -->
+    <script src="/pbl5/php/_ui/js/forgot_password.js"></script>
   </body>
 </html>

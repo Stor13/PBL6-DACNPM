@@ -9,7 +9,7 @@ class S_Account {
   }
 
   public function create_Account(
-    $UserID, $Password, $Role, $Email, $Name, $DoB, $PhoneNumber, $IsLocked
+    $UserID, $Password, $Role, $Email, $Name, $DoB, $PhoneNumber
   ) {
     $this->account->UserID = $UserID;
     $this->account->Password = $Password;
@@ -18,7 +18,6 @@ class S_Account {
     $this->account->Name = $Name;
     $this->account->DoB = $DoB;
     $this->account->PhoneNumber = $PhoneNumber;
-    $this->account->IsLocked = $IsLocked;
 
     return $this->account->create();
   }
@@ -50,7 +49,7 @@ class S_Account {
 
   public function getOne_UserID(string $id): array|null {
     $result = $this->_getOne_UserID($id);
-    if (is_array($result) == false) return null;
+    if (is_array($result) == false || empty($result)) return null;
     foreach ($this->remove_keys as $k) {
       if (isset($result[$k])) unset($result[$k]);
     }
@@ -82,7 +81,6 @@ class S_Account {
     $this->account->Name = $account["Name"];
     $this->account->DoB = $account["DoB"];
     $this->account->PhoneNumber = $account["PhoneNumber"];
-    $this->account->IsLocked = $account["IsLocked"];
     
     return $this->update();
   }
@@ -100,7 +98,6 @@ class S_Account {
     $this->account->Name = $account["Name"];
     $this->account->DoB = $account["DoB"];
     $this->account->PhoneNumber = $account["PhoneNumber"];
-    $this->account->IsLocked = true;
     
     return $this->update();
   }
@@ -118,7 +115,6 @@ class S_Account {
     $this->account->Name = $account["Name"];
     $this->account->DoB = $account["DoB"];
     $this->account->PhoneNumber = $account["PhoneNumber"];
-    $this->account->IsLocked = false;
     
     return $this->update();
   }
@@ -136,7 +132,6 @@ class S_Account {
     $this->account->Name = $Name;
     $this->account->DoB = $DoB;
     $this->account->PhoneNumber = $PhoneNumber;
-    $this->account->IsLocked = $account["IsLocked"];
     
     return $this->update();
   }

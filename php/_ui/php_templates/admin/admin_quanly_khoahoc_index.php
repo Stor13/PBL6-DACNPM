@@ -14,7 +14,7 @@ $courses = $service_course->getAll();
 <div class="container w-75 d-flex flex-wrap justify-content-between align-items-start">
   <?php if (empty($courses)) { ?>
     <div class="container-fluid w-75 d-flex flex-wrap justify-content-between align-items-start">
-      <h5 class="fs-2"><p class="text-decoration-underline text-danger">Lỗi</p><p class="text-danger">:</p>p{ Không tồn tại bản ghi nào về khoá học}</h5>
+      <h5 class="fs-2"><span class="text-decoration-underline text-danger">Lỗi</span><span class="text-danger">:</span> Không tồn tại bản ghi nào về khoá học</h5>
     </div>
   <?php } else { ?>
     <div class="container py-1 w-75" id="content-table">

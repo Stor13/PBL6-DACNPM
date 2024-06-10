@@ -80,9 +80,8 @@ class Account {
   }
 
   public function update(): bool {
-    $sql = "UPDATE ".$this->table." SET Password=:Password, Role=:Role,
-            Email=:Email, Name=:Name, DoB=:DoB, PhoneNumber=:PhoneNumber,
-            IsLocked=:IsLocked WHERE UserID=:UserID";
+    $sql = "UPDATE ".$this->table." SET Password=?, Role=?,
+            Email=?, Name=?, DoB=?, PhoneNumber=? WHERE UserID=?";
     $stmt = $this->conn->prepare($sql);
 
     $this->UserID = preprocess_input($this->UserID);
@@ -94,17 +93,18 @@ class Account {
     $this->Name = preprocess_input($this->Name);
     $this->IsLocked = preprocess_input($this->IsLocked);
 
-    $stmt->bind_param(":UserID", $this->UserID);
-    $stmt->bind_param(":Password", $this->Password);
-    $stmt->bind_param(":Role", $this->Role);
-    $stmt->bind_param(":Email", $this->Email);
-    $stmt->bind_param(":Name", $this->Name);
-    $stmt->bind_param(":DoB", $this->DoB);
-    $stmt->bind_param(":PhoneNumber", $this->PhoneNumber);
-    $stmt->bind_param(":IsLocked", $this->IsLocked);
+    $stmt->bind_param(
+      "sssssss",
+      $this->Password,
+      $this->Role,
+      $this->Email,
+      $this->Name,
+      $this->DoB,
+      $this->PhoneNumber,
+      $this->UserID
+    );
 
-    if ($stmt->execute()) return $stmt->affected_rows > 0;
-    else return false;
+    return $stmt->execute();
   }
 
   public function find(string $str): mysqli_result {
